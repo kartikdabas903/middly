@@ -1,0 +1,57 @@
+[
+  {
+    "citizenId": "100001",
+    "aadhaarRef": "DEMO-XXXX-XXXX-1001",
+    "fullName": "Rahul Sharma",
+    "dob": "14-03-2002",
+    "gender": "M",
+    "mobileNumber": "+91 90000 10001",
+    "emailId": "rahul.sharma@demo.middly.example",
+    "address": {"line1": "Flat 12, Shivaji Nagar", "district": "Pune", "stateCode": "MH", "pincode": "411005"},
+    "lastUpdated": "2026-06-12T09:30:00Z"
+  },
+  {
+    "citizenId": "100002",
+    "aadhaarRef": "DEMO-XXXX-XXXX-1002",
+    "fullName": "Priya Deshmukh",
+    "dob": "05-11-2001",
+    "gender": "F",
+    "mobileNumber": "9000010002",
+    "emailId": "priya.deshmukh@demo.middly.example",
+    "address": {"line1": "Plot 7, Dharampeth", "district": "Nagpur", "stateCode": "MH", "pincode": "440010"},
+    "lastUpdated": "2026-03-02T11:00:00Z"
+  },
+  {
+    "citizenId": "100003",
+    "aadhaarRef": "DEMO-XXXX-XXXX-1003",
+    "fullName": "Amit Verma",
+    "dob": "21-06-1985",
+    "gender": "M",
+    "mobileNumber": "090000 10003",
+    "emailId": "amit.verma@demo.middly.example",
+    "address": {"line1": "45, Vijay Nagar", "district": "Indore", "stateCode": "MP", "pincode": "452010"},
+    "lastUpdated": "2025-11-20T08:15:00Z"
+  },
+  {
+    "citizenId": "100004",
+    "aadhaarRef": "DEMO-XXXX-XXXX-1004",
+    "fullName": "Sneha Patil",
+    "dob": "22-08-2003",
+    "gender": "F",
+    "mobileNumber": "9000010004",
+    "emailId": "sneha.patil@demo.middly.example",
+    "address": {"line1": "House 3, Rajarampuri", "district": "Kolhapur", "stateCode": "MH", "pincode": "416008"},
+    "lastUpdated": "2023-01-15T10:00:00Z"
+  },
+  {
+    "citizenId": "100005",
+    "aadhaarRef": "DEMO-XXXX-XXXX-1005",
+    "fullName": "SNEHA PATIL",
+    "dob": "22-08-2003",
+    "gender": "F",
+    "mobileNumber": "9000010005",
+    "emailId": null,
+    "address": {"line1": "12, Vishrambag", "district": "Sangli", "stateCode": "MH", "pincode": "416415"},
+    "lastUpdated": "2026-02-10T10:00:00Z"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "code": "SKILL_DEV_RULES_V1",
+  "demo": true,
+  "disclaimer": "Sample rule set for the sandbox environment. Rules are configurable per scheme.",
+  "rules": [
+    {
+      "id": "MAHARASHTRA_RESIDENT",
+      "description": "Applicant's identity record shows a Maharashtra address",
+      "operator": "equals",
+      "field": "state",
+      "value": "Maharashtra",
+      "pass_message": "Resident of Maharashtra (per Identity Service)",
+      "fail_message": "Address on identity record is outside Maharashtra"
+    },
+    {
+      "id": "AGE_RANGE",
+      "description": "Applicant aged 18 to 35 years",
+      "operator": "age_between",
+      "field": "date_of_birth",
+      "min": 18,
+      "max": 35,
+      "pass_message": "Age within 18–35 years",
+      "fail_message": "Age outside the 18–35 years range"
+    },
+    {
+      "id": "EDUCATION_REQUIREMENT",
+      "description": "Minimum qualification Class 10 (SSC) or equivalent",
+      "operator": "min_level",
+      "field": "education.qualification_level",
+      "min": "CLASS_10",
+      "pass_message": "Minimum education requirement satisfied",
+      "fail_message": "Minimum qualification (Class 10) not found in Education Registry"
+    },
+    {
+      "id": "EMPLOYMENT_REQUIREMENT",
+      "description": "Applicant currently not in salaried employment",
+      "operator": "in",
+      "field": "employment_status",
+      "values": ["UNEMPLOYED", "STUDENT"],
+      "pass_message": "Registered as job seeker / not employed",
+      "fail_message": "Employment Registry shows the applicant is currently employed"
+    }
+  ]
+}

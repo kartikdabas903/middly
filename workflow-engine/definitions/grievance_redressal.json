@@ -1,0 +1,13 @@
+{
+  "code": "GRIEVANCE_REDRESSAL",
+  "version": 1,
+  "name": "Grievance Redressal",
+  "description": "Registers a grievance in the department's system and tracks it until resolution..",
+  "steps": [
+    {"key": "APPLICATION_CREATED", "type": "start", "label": "Grievance Submitted", "event": "GRIEVANCE_CREATED"},
+    {"key": "DEPARTMENT_SUBMISSION", "type": "department_submit", "label": "Registered with Department"},
+    {"key": "DEPARTMENT_PROCESSING", "type": "external_status", "label": "Department Processing", "complete_on": ["RESOLVED", "CLOSED"], "reject_on": ["REJECTED"]},
+    {"key": "DECISION", "type": "decision", "label": "Resolved"},
+    {"key": "NOTIFICATION_SENT", "type": "notification", "label": "Citizen Notified"}
+  ]
+}

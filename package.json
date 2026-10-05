@@ -1,0 +1,22 @@
+{
+  "name": "middly",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Middly — Government Digital Interoperability Platform (DEMO, SIH PS 26129)",
+  "scripts": {
+    "install:dev": "node scripts/run-platform.mjs install-dev",
+    "dev:all": "node scripts/dev-all.mjs",
+    "start": "docker compose up -d --build",
+    "stop": "docker compose -f docker-compose.yml -f docker-compose.dev.yml down",
+    "status": "docker compose ps",
+    "logs": "docker compose logs -f --tail 100 backend worker",
+    "reset": "docker compose exec backend python -m app.seed.run reset-and-seed",
+    "test": "npm run test:backend && npm run test:e2e",
+    "test:backend": "docker compose exec backend python -m pytest -q",
+    "test:e2e": "cd frontend && npx playwright test",
+    "demo:api": "python scripts/api_demo_flow.py --all"
+  },
+  "engines": {
+    "node": ">=20.9"
+  }
+}

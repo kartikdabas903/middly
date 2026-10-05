@@ -1,0 +1,67 @@
+{
+  "departments": [
+    {"code": "IDENTITY_AUTHORITY", "name": "Identity Services", "description": "Maintains resident identity records."},
+    {"code": "EDUCATION_DEPT", "name": "Education Registry", "description": "Maintains academic qualification records."},
+    {"code": "EMPLOYMENT_DEPT", "name": "Employment Registry", "description": "Maintains job-seeker and employment records."},
+    {"code": "SKILL_DEV", "name": "Skill Development Department", "description": "Runs skill training schemes."},
+    {"code": "GRIEVANCE_CELL", "name": "Public Grievance Cell", "description": "Handles citizen grievances."}
+  ],
+  "services": [
+    {
+      "code": "SKILL_DEV_SCHEME",
+      "name": "Skill Development Training Scheme",
+      "description": "Free short-term skill training for eligible youth. Your identity, education and employment details are fetched from department registries with your consent — no documents to upload.",
+      "department": "SKILL_DEV",
+      "workflow": "SKILL_DEVELOPMENT_APPLICATION",
+      "department_connector": "skill",
+      "required_categories": ["IDENTITY", "EDUCATION", "EMPLOYMENT"],
+      "consent_purpose": "Verify identity, education and employment status to determine eligibility for the Skill Development Training Scheme",
+      "consent_validity_days": 180,
+      "eligibility_rules_file": "rules/skill_development_rules.json",
+      "form_schema": {
+        "fields": [
+          {"name": "preferred_trade", "label": "Preferred trade", "type": "select", "required": true,
+           "options": [
+             {"value": "SOFTWARE_DEVELOPMENT", "label": "Software Development"},
+             {"value": "ELECTRICIAN", "label": "Electrician"},
+             {"value": "ELECTRONICS_REPAIR", "label": "Electronics Repair"},
+             {"value": "DATA_ENTRY", "label": "Data Entry Operator"},
+             {"value": "RETAIL_SALES", "label": "Retail Sales Associate"}
+           ]},
+          {"name": "preferred_district", "label": "Preferred training district", "type": "select", "required": true,
+           "options": [
+             {"value": "Pune", "label": "Pune"}, {"value": "Mumbai", "label": "Mumbai"}, {"value": "Nagpur", "label": "Nagpur"},
+             {"value": "Nashik", "label": "Nashik"}, {"value": "Kolhapur", "label": "Kolhapur"}, {"value": "Aurangabad", "label": "Chhatrapati Sambhajinagar"}
+           ]},
+          {"name": "training_mode", "label": "Training mode", "type": "select", "required": true,
+           "options": [{"value": "CLASSROOM", "label": "Classroom"}, {"value": "ONLINE", "label": "Online"}, {"value": "HYBRID", "label": "Hybrid"}]}
+        ]
+      }
+    },
+    {
+      "code": "GRIEVANCE_REDRESSAL",
+      "name": "Public Grievance Redressal",
+      "description": "Register a grievance with the concerned department and track it alongside your applications.",
+      "department": "GRIEVANCE_CELL",
+      "workflow": "GRIEVANCE_REDRESSAL",
+      "department_connector": "grievance",
+      "required_categories": [],
+      "consent_purpose": "",
+      "consent_validity_days": 0,
+      "eligibility_rules_file": null,
+      "form_schema": {
+        "fields": [
+          {"name": "category", "label": "Category", "type": "select", "required": true,
+           "options": [
+             {"value": "SCHEME_BENEFIT", "label": "Scheme benefit / stipend"},
+             {"value": "RECORD_CORRECTION", "label": "Correction in records"},
+             {"value": "SERVICE_DELAY", "label": "Delay in service"},
+             {"value": "OTHER", "label": "Other"}
+           ]},
+          {"name": "subject", "label": "Subject", "type": "text", "required": true, "minLength": 5, "maxLength": 200},
+          {"name": "description", "label": "Describe your grievance", "type": "textarea", "required": true, "minLength": 10, "maxLength": 2000}
+        ]
+      }
+    }
+  ]
+}

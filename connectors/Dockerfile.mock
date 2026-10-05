@@ -1,0 +1,21 @@
+# Shared image for DEMO / MOCK department systems.
+# Build context: ./connectors   Build arg SERVICE_DIR selects the department folder.
+FROM python:3.11-slim
+
+ARG SERVICE_DIR
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 MOCK_RUNTIME_DIR=/app/runtime
+
+WORKDIR /app
+COPY requirements-mock.txt .
+RUN pip install -r requirements-mock.txt
+
+COPY mock_common/ /app/mock_common/
+COPY ${SERVICE_DIR}/mock_service/ /app/service/
+
+RUN useradd --uid 10001 --no-create-home --shell /usr/sbin/nologin mockuser \
+    && mkdir -p /app/runtime && chown mockuser /app/runtime
+USER mockuser
+
+EXPOSE 8000
+HEALTHCHECK --interval=10s --timeout=3s --retries=5 CMD python -c "import urllib.request,sys; urllib.request.urlopen('http://localhost:8000/docs', timeout=2)" || exit 1
+CMD ["uvicorn", "service.main:app", "--host", "0.0.0.0", "--port", "8000", "--no-access-log"]

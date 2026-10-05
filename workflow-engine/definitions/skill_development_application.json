@@ -1,0 +1,19 @@
+{
+  "code": "SKILL_DEVELOPMENT_APPLICATION",
+  "version": 1,
+  "name": "Skill Development Scheme Application",
+  "description": "Consent-based cross-department verification followed by officer review..",
+  "steps": [
+    {"key": "APPLICATION_CREATED", "type": "start", "label": "Application Submitted"},
+    {"key": "CONSENT_REQUIRED", "type": "consent", "label": "Consent Granted", "categories": ["IDENTITY", "EDUCATION", "EMPLOYMENT"]},
+    {"key": "FETCH_IDENTITY", "type": "fetch", "label": "Identity Verified", "connector": "identity", "category": "IDENTITY"},
+    {"key": "FETCH_EDUCATION", "type": "fetch", "label": "Education Verified", "connector": "education", "category": "EDUCATION"},
+    {"key": "FETCH_EMPLOYMENT", "type": "fetch", "label": "Employment Verified", "connector": "employment", "category": "EMPLOYMENT"},
+    {"key": "DATA_VALIDATION", "type": "validation", "label": "Data Validated"},
+    {"key": "ELIGIBILITY_CHECK", "type": "eligibility", "label": "Eligibility Checked", "on_ineligible": "AUTO_REJECT"},
+    {"key": "DEPARTMENT_SUBMISSION", "type": "department_submit", "label": "Forwarded to Department"},
+    {"key": "OFFICER_REVIEW", "type": "human_review", "label": "Officer Review", "role": "OFFICER"},
+    {"key": "DECISION", "type": "decision", "label": "Final Decision"},
+    {"key": "NOTIFICATION_SENT", "type": "notification", "label": "Citizen Notified"}
+  ]
+}

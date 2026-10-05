@@ -1,0 +1,57 @@
+[
+  {
+    "registrationId": "MHEMP-2025-000781",
+    "citizenRef": "100001",
+    "candidateName": "Rahul Sharma",
+    "dateOfBirth": "2002-03-14",
+    "employmentStatus": "UNEMPLOYED",
+    "registeredOn": "2025-09-10",
+    "skills": ["Python", "AutoCAD"],
+    "lastEmployer": null,
+    "lastVerified": "2026-07-30"
+  },
+  {
+    "registrationId": "MHEMP-2024-004412",
+    "citizenRef": "100002",
+    "candidateName": "Priya Deshmukh",
+    "dateOfBirth": "2001-11-05",
+    "employmentStatus": "UNEMP",
+    "registeredOn": "2024-06-18",
+    "skills": ["PCB Assembly", "Soldering"],
+    "lastEmployer": null,
+    "lastVerified": "2026-05-04"
+  },
+  {
+    "registrationId": "MHEMP-2019-001173",
+    "citizenRef": "100003",
+    "candidateName": "Amit Kumar Varma",
+    "dateOfBirth": "1985-06-21",
+    "employmentStatus": "EMP",
+    "registeredOn": "2019-02-02",
+    "skills": ["Accounting", "Tally"],
+    "lastEmployer": "Demo Logistics Pvt Ltd",
+    "lastVerified": "2026-01-12"
+  },
+  {
+    "registrationId": "MHEMP-2024-007345",
+    "citizenRef": "100004",
+    "candidateName": "Sneha Patil",
+    "dateOfBirth": "2003-08-22",
+    "employmentStatus": "UNEMPLOYED",
+    "registeredOn": "2024-01-08",
+    "skills": ["Electrical Wiring"],
+    "lastEmployer": null,
+    "lastVerified": "2026-04-22"
+  },
+  {
+    "registrationId": "MHEMP-2023-009021",
+    "citizenRef": "100005",
+    "candidateName": "Sneha Patil",
+    "dateOfBirth": "2003-08-22",
+    "employmentStatus": "SALARIED",
+    "registeredOn": "2023-05-30",
+    "skills": ["Retail"],
+    "lastEmployer": "Demo Retail Stores",
+    "lastVerified": "2026-02-01"
+  }
+]

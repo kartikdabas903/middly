@@ -1,0 +1,28 @@
+# Development override: bind-mount source code so backend/worker/mocks pick up changes without rebuilding.
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+services:
+  backend:
+    volumes:
+      - ./backend:/app
+      - ./connectors:/opt/middly/connectors:ro
+      - ./workflow-engine:/opt/middly/workflow-engine:ro
+    environment:
+      UVICORN_RELOAD: "true"
+      WATCHFILES_FORCE_POLLING: "true"   # file events don't cross Windows/macOS bind mounts
+    ports:
+      - "8001:8000"
+  worker:
+    volumes:
+      - ./backend:/app
+      - ./connectors:/opt/middly/connectors:ro
+      - ./workflow-engine:/opt/middly/workflow-engine:ro
+  mock-identity:
+    volumes: [./connectors/mock_common:/app/mock_common:ro, ./connectors/identity/mock_service:/app/service:ro]
+  mock-education:
+    volumes: [./connectors/mock_common:/app/mock_common:ro, ./connectors/education/mock_service:/app/service:ro]
+  mock-employment:
+    volumes: [./connectors/mock_common:/app/mock_common:ro, ./connectors/employment/mock_service:/app/service:ro]
+  mock-skill:
+    volumes: [./connectors/mock_common:/app/mock_common:ro, ./connectors/skill-development/mock_service:/app/service:ro]
+  mock-grievance:
+    volumes: [./connectors/mock_common:/app/mock_common:ro, ./connectors/grievance/mock_service:/app/service:ro]
